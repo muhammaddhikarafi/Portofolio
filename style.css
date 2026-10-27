@@ -1,0 +1,488 @@
+/* --- RESET & VARIABLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --primary-color: #ff5722;   
+    --secondary-color: #172554; 
+    --accent-color: #ffcc00;    
+    --bg-light: #f5f7fa;       
+    --bg-card: #ffffff;
+    --text-dark: #253047;
+    --text-muted: #64748b;
+    --shadow: 0 8px 24px rgba(23,37,84,0.07);
+    --radius: 16px;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* --- NAVBAR --- */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    z-index: 1000;
+}
+
+nav {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.9rem 2rem;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.35rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.8rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 0.95rem; 
+    transition: all 0.3s ease;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+    background-color: #ffebe6;
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    padding: 2.2rem 2rem 1.5rem;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    min-height: auto;
+}
+
+.hero-text {
+    flex: 1.2;
+}
+
+.badge-unesa {
+    display: inline-block;
+    background-color: #ffebe6;
+    color: var(--primary-color);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.hero-text h1 {
+    font-size: 2.8rem;
+    line-height: 1.2;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.highlight-name {
+    color: var(--primary-color);
+}
+
+.hero-text p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+    max-width: 500px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 0.8rem 1.8rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #e64a19;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border: 2px solid #e2e8f0;
+    color: var(--text-dark);
+    padding: 0.8rem 1.8rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.hero-avatar {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.hero-avatar::before {
+    content: '';
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    background: #ffe6de;
+    border-radius: 50%;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+}
+
+.hero-img-free {
+    position: relative;
+    z-index: 2; /* Agar foto berada di depan lingkaran */
+    width: 100%;
+    max-width: 500px;       /* Ukuran foto diperbesar agar lebih pas */
+    height: auto;
+    max-height: 600px;
+    object-fit: contain;
+    border: none;
+    box-shadow: none;
+    filter: drop-shadow(0px 12px 20px rgba(0, 0, 0, 0.18)); /* Bayangan lembut berbentuk badan */
+    transition: transform 0.3s ease;
+}
+
+/* Efek Hover Halus saat Kursor di atas Foto */
+.hero-img-free:hover {
+    transform: translateY(-5px);
+}
+
+/* .hero-img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    max-height: 520px;
+    object-fit: contain;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.15));
+} */
+
+/* --- SECTIONS COMMON --- */
+section {
+    padding: 4rem 2rem;
+    max-width: 1280px;
+    margin: 0 auto;
+    scroll-margin-top: 70px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title h2 {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    position: relative;
+    display: inline-block;
+}
+
+.section-title h2::after {
+    content: '';
+    width: 50%;
+    height: 4px;
+    background-color: var(--primary-color);
+    position: absolute;
+    bottom: -8px;
+    left: 25%;
+    border-radius: 2px;
+}
+
+/* --- ABOUT ME SECTION --- */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.info-list {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.info-list li {
+    margin-bottom: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dashed #eee;
+    padding-bottom: 0.4rem;
+}
+
+.info-list strong {
+    color: var(--secondary-color);
+}
+
+/* --- WHAT I CAN DO SECTION --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.skill-card {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+}
+
+.skill-card i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.skill-card h4 {
+    margin-bottom: 0.5rem;
+}
+
+/* --- ACHIEVEMENT SECTION --- */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.achievement-card {
+    background: var(--bg-card);
+    padding: 1.5rem 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border-left: 5px solid var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.achievement-info h3 {
+    color: var(--secondary-color);
+    margin-bottom: 0.3rem;
+}
+
+.achievement-info p.organizer {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.achievement-date {
+    background: var(--bg-light);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+/* --- CONTACT SECTION --- */
+.contact-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.contact-box {
+    background: var(--bg-card);
+    padding: 2rem 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: transform 0.3s, background 0.3s;
+}
+
+.contact-box:hover {
+    transform: translateY(-5px);
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.contact-box i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.contact-box:hover i {
+    color: white;
+}
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: var(--secondary-color);
+    color: white;
+    margin-top: 4rem;
+    font-size: 0.9rem;
+}
+
+/* --- CSS TOMBOL GARIS TIGA (DEFAULT HIDDEN DI DESKTOP) --- */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    nav {
+        padding: 0.8rem 1.2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+
+    /* Tombol Garis Tiga */
+    .menu-toggle {
+        display: block !important;
+        background: transparent;
+        border: none;
+        font-size: 1.8rem;
+        color: var(--primary-color);
+        cursor: pointer;
+        padding: 4px 8px;
+        z-index: 1002;
+    }
+
+    /* Menu Dropdown */
+    .nav-links {
+        display: none; /* Sembunyi secara default */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        flex-direction: column;
+        padding: 0.5rem 0;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        z-index: 1001;
+    }
+
+    /* KELAS AKTIF SAAT DIKLIK */
+    .nav-links.show-menu {
+        display: flex !important;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    /* --- RESPONSIVE HERO SECTION (MOBILE) --- */
+    @media (max-width: 768px) {
+        .hero {
+            flex-direction: column-reverse;
+            padding-top: 6rem;
+            gap: 2.5rem;
+            text-align: center;
+        }
+
+        .hero-text h1 {
+            font-size: 1.8rem;
+        }
+
+        .hero-text p {
+            margin: 0 auto 1.5rem auto;
+            font-size: 0.95rem;
+        }
+
+        .hero-buttons {
+            justify-content: center;
+        }
+
+        .hero-avatar {
+            margin-top: 1rem; 
+        }
+
+        .hero-avatar::before {
+            width: 220px;
+            height: 220px;
+        }
+
+        .hero-img-free {
+            max-width: 240px;
+            max-height: 320px;
+        }
+    }
+}
